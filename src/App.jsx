@@ -3,15 +3,25 @@ import { motion } from "framer-motion";
 import reactLogo from "./assets/react.svg";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [theme, setTheme] = useState("light");
+  let init_theme = localStorage.getItem("theme");
+  if (init_theme == null) {
+    init_theme = "light";
+  }
 
-  const toggleTheme = () => {
-    localStorage.setItem("theme", "dark");
+  const [count, setCount] = useState(0);
+  const [theme, setTheme] = useState(init_theme);
+
+  const toggleTheme = (event) => {
+    localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
   useEffect(() => {
+    if (theme === "light") {
+      document.getElementById("toggle-theme").ariaChecked = false;
+    } else {
+      document.getElementById("toggle-theme").ariaChecked = true;
+    }
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
 
@@ -39,10 +49,10 @@ function App() {
     <motion.div variants={container} initial="hidden" animate="visible" className="h-screen flex text-center justify-center items-center">
       <div>
         <motion.div variants={item} className="mb-4">
-          <input type="checkbox" className="toggle" onClick={toggleTheme} />
+          <input id="toggle-theme" type="checkbox" checked={false} className="toggle" onChange={toggleTheme} />
           <h1 className="text-2xl">theme change</h1>
         </motion.div>
-        <motion.div variants={item} className="flex gap-4 justify-center items-center">
+        <motion.div variants={item} className="flex gap-10 justify-center items-center">
           <a href="https://vitejs.dev" target="_blank">
             <img className="w-32" src="/vite.svg" alt="Vite logo" />
           </a>
