@@ -13,10 +13,9 @@ Plantilla preconfigurada para crear proyectos React con Vite
 Dependencias
 
 -  daisyui (2.50.0)  [Web](https://daisyui.com/docs/install/)
--  framer-motion (9.0.1) [Web](https://www.npmjs.com/package/framer-motion)
+-  framer-motion (9.0.1) [Web](https://www.framer.com/docs/)
 -  react (18.2.0) [Web](https://reactjs.org/docs/getting-started.html)
 -  react-icons (4.7.1) [Web](https://react-icons.github.io/react-icons/)
--  theme-change (2.3.0) [Web](https://github.com/saadeghi/theme-change)
 
 Dependencias de desarrollo
 
