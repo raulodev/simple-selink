@@ -1,35 +1,17 @@
-import { useState, useEffect } from "react";
-import { FiMoon, FiSun } from "react-icons/fi";
+import { useState } from "react";
 import reactLogo from "./assets/react.svg";
+import { ToggleThemeButton } from "./ToggleThemeButton";
 
 function App() {
-  let init_theme = localStorage.getItem("theme");
-  if (init_theme == null) {
-    init_theme = "light";
-  }
-
   const [count, setCount] = useState(0);
-  const [theme, setTheme] = useState(init_theme);
-
-  const toggleTheme = (event) => {
-    localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
-  useEffect(() => {
-    document.querySelector("html").setAttribute("data-theme", theme);
-  }, [theme]);
 
   return (
     <div className="h-screen flex text-center justify-center items-center">
       <div>
-        <div className="mb-4">
-          <button id="toggle-theme" onClick={toggleTheme}>
-            {theme === "dark" ? <FiMoon className="w-5 h-5" /> : <FiSun className="w-5 h-5" />}
-          </button>
-          <h1 className="text-xl">theme change</h1>
+        <div>
+          <ToggleThemeButton />
         </div>
-        <div className="flex gap-10 justify-center items-center">
+        <div className="flex gap-10 py-4 justify-center items-center">
           <a href="https://vitejs.dev" target="_blank">
             <img className="w-32" src="/vite.svg" alt="Vite logo" />
           </a>
@@ -37,8 +19,8 @@ function App() {
             <img className="w-32" src={reactLogo} alt="React logo" />
           </a>
         </div>
-        <h1 className="text-4xl py-4">daisyUi + React + Vite</h1>
-        <div className="text-xl">
+        <h1 className="text-4xl">daisyUi + React + Vite</h1>
+        <div className="text-xl py-4">
           <button className="btn btn-primary" onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </button>
@@ -46,7 +28,16 @@ function App() {
             Edit <code>src/App.jsx</code> and save to test HMR
           </p>
         </div>
-        <p className="text-xl mt-4">Click on the Vite and React logos to learn more</p>
+        <p className="text-xl">Click on the Vite and React logos to learn more</p>
+        <div className="flex justify-center gap-4 pt-4">
+          <div className="bg-primary w-8 h-8 rounded-full"></div>
+          <div className="bg-secondary w-8 h-8 rounded-full"></div>
+          <div className="bg-accent w-8 h-8 rounded-full"></div>
+          <div className="bg-info w-8 h-8 rounded-full"></div>
+          <div className="bg-success w-8 h-8 rounded-full"></div>
+          <div className="bg-warning w-8 h-8 rounded-full"></div>
+          <div className="bg-error w-8 h-8 rounded-full"></div>
+        </div>
       </div>
     </div>
   );
