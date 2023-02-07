@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { FiMoon, FiSun } from "react-icons/fi";
 import reactLogo from "./assets/react.svg";
 
 function App() {
@@ -17,65 +17,38 @@ function App() {
   };
 
   useEffect(() => {
-    if (theme === "light") {
-      document.getElementById("toggle-theme").ariaChecked = false;
-    } else {
-      document.getElementById("toggle-theme").ariaChecked = true;
-    }
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
 
-  const container = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
-
   return (
-    <motion.div variants={container} initial="hidden" animate="visible" className="h-screen flex text-center justify-center items-center">
+    <div className="h-screen flex text-center justify-center items-center">
       <div>
-        <motion.div variants={item} className="mb-4">
-          <input id="toggle-theme" type="checkbox" checked={false} className="toggle" onChange={toggleTheme} />
-          <h1 className="text-2xl">theme change</h1>
-        </motion.div>
-        <motion.div variants={item} className="flex gap-10 justify-center items-center">
+        <div className="mb-4">
+          <button id="toggle-theme" onClick={toggleTheme}>
+            {theme === "dark" ? <FiMoon className="w-5 h-5" /> : <FiSun className="w-5 h-5" />}
+          </button>
+          <h1 className="text-xl">theme change</h1>
+        </div>
+        <div className="flex gap-10 justify-center items-center">
           <a href="https://vitejs.dev" target="_blank">
             <img className="w-32" src="/vite.svg" alt="Vite logo" />
           </a>
           <a href="https://reactjs.org" target="_blank">
             <img className="w-32" src={reactLogo} alt="React logo" />
           </a>
-        </motion.div>
-        <motion.h1 variants={item} className="text-4xl py-4">
-          daisyUi + React + Vite
-        </motion.h1>
-        <motion.div variants={item} className="text-2xl">
-          <button className="btn" onClick={() => setCount((count) => count + 1)}>
+        </div>
+        <h1 className="text-4xl py-4">daisyUi + React + Vite</h1>
+        <div className="text-xl">
+          <button className="btn btn-primary" onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </button>
           <p className="mt-4">
             Edit <code>src/App.jsx</code> and save to test HMR
           </p>
-        </motion.div>
-        <motion.p variants={item} className="text-2xl mt-4">
-          Click on the Vite and React logos to learn more
-        </motion.p>
+        </div>
+        <p className="text-xl mt-4">Click on the Vite and React logos to learn more</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
