@@ -21,7 +21,7 @@ function App() {
         </div>
         <h1 className="text-4xl">daisyUi + React + Vite</h1>
         <div className="text-xl py-4">
-          <button className="btn btn-primary" onClick={() => setCount((count) => count + 1)}>
+          <button className="btn btn-primary no-animation" onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </button>
           <p className="mt-4">
