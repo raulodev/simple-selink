@@ -11,15 +11,10 @@ Plantilla preconfigurada para crear proyectos React con Vite
 
 Dependencias
 
-<<<<<<< HEAD
+
 - daisyui (2.50.0) [Web](https://daisyui.com/docs/install/)
 - react (18.2.0) [Web](https://reactjs.org/docs/getting-started.html)
 - react-icons (4.7.1) [Web](https://react-icons.github.io/react-icons/)
-=======
--  daisyui (2.50.0)  [Web](https://daisyui.com/docs/install/)
--  react (18.2.0) [Web](https://reactjs.org/docs/getting-started.html)
--  react-icons (4.7.1) [Web](https://react-icons.github.io/react-icons/)
->>>>>>> 9fbc6c2c49255f594e40b1c8bdb0b72222a85476
 
 Dependencias de desarrollo
 
