@@ -1,4 +1,4 @@
-# daisyUi + React + Vite
+# selink
 
 ## Tabla de contenido
 
@@ -7,10 +7,9 @@
 
 ## Sobre <a name = "about"></a>
 
-Plantilla preconfigurada para crear proyectos React con Vite
+Aplicación contruida con React y daisyUI para guardar enlaces
 
 Dependencias
-
 
 - daisyui (2.50.0) [Web](https://daisyui.com/docs/install/)
 - react (18.2.0) [Web](https://reactjs.org/docs/getting-started.html)
@@ -33,13 +32,13 @@ Dependencias de desarrollo
 ### Clonar repositorio
 
 ```console
-git clone git@github.com:raulodev/daisyUi-React-Vite-template.git
+git clone git@github.com:raulodev/selink.git
 ```
 
 ### Acceder al proyecto e instalar dependencias
 
 ```console
-$ cd daisyUi-React-Vite-template/
+$ cd selink/
 $ npm install
 ```
 
