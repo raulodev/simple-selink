@@ -9,10 +9,10 @@ export function Modal() {
           </label>
           <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
           <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-          <input type="text" placeholder="enlace" className="w-full max-w-xs rounded input border-base-300" />
+          <input type="text" placeholder="www.example.com" className="w-full max-w-xs rounded input border-base-300" />
           <div className="modal-action">
-            <label htmlFor="modal" className="rounded btn btn-primary">
-              add
+            <label htmlFor="modal" className="uppercase rounded btn btn-primary no-animation">
+              Agregar
             </label>
           </div>
         </div>
