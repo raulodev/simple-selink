@@ -7,7 +7,12 @@ module.exports = {
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
-      "black",
+      {
+        black: {
+          ...require("daisyui/src/colors/themes")["[data-theme=black]"],
+          primary: "#3b82f6",
+        },
+      },
       {
         light: {
           ...require("daisyui/src/colors/themes")["[data-theme=light]"],

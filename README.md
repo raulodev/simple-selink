@@ -4,6 +4,7 @@
 
 - [Sobre](#about)
 - [Instalación](#getting_started)
+- [TODO](#todo)
 
 ## Sobre <a name = "about"></a>
 
@@ -47,3 +48,11 @@ $ npm install
 ```console
 $ npm run dev
 ```
+
+## TODO <a name = "todo"></a>
+
+- Ordenar por nombre alfabético
+- No permitir entradas duplicadas
+- Ocultar enlaces
+- Buscar por títulos
+- Editar información

@@ -11,7 +11,7 @@ export function NavBar() {
   }
 
   return (
-    <div className="px-4 navbar bg-base-100">
+    <div className="px-4 navbar  fixed z-10 top-0 backdrop-blur">
       <div className="flex-none sm:flex-1">
         <a className="text-xl normal-case rounded btn btn-ghost no-animation">s3link</a>
       </div>
@@ -22,7 +22,7 @@ export function NavBar() {
             <>
               <div>
                 <label htmlFor="modal" className="text-xl normal-case rounded btn btn-ghost no-animation">
-                  <FiLink />
+                  <FiLink className="animate-pulse" />
                 </label>
               </div>
               <div>
@@ -35,7 +35,7 @@ export function NavBar() {
             <>
               <div>
                 <label htmlFor="modal" className="text-xl hidden md:flex normal-case rounded btn btn-ghost no-animation">
-                  <FiLink />
+                  <FiLink className="animate-pulse" />
                 </label>
               </div>
               <div>
@@ -51,7 +51,7 @@ export function NavBar() {
                   <button onClick={handlerClick} className="mx-1 text-xl normal-case rounded md:hidden  btn btn-ghost no-animation">
                     <FiSearch />
                   </button>
-                  <input type="text" placeholder="buscar" className="rounded w-full  input input-bordered" />
+                  <input type="text" placeholder="buscar" className="rounded w-full  input input-bordered bg-transparent" />
                 </div>
               )}
               {/* Mostrar si show es false */}
@@ -60,7 +60,7 @@ export function NavBar() {
                   <button onClick={handlerClick} className="mx-1 text-xl normal-case rounded w-min sm:hidden btn btn-ghost no-animation">
                     <FiSearch />
                   </button>
-                  <input type="text" placeholder="buscar" className="hidden w-72 rounded md:flex input input-bordered" />
+                  <input type="text" placeholder="buscar" className="hidden w-72 rounded md:flex input input-bordered bg-transparent" />
                 </>
               )}
             </div>
