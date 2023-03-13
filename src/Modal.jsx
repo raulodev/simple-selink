@@ -39,7 +39,7 @@ export function Modal({ runUpdate }) {
         title: title,
         description: description,
         link: link,
-        image: linkimage,
+        image: linkimage.trim().includes("http") ? linkimage : interImage,
       };
 
       setData(new_data);
