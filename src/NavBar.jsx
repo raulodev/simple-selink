@@ -1,28 +1,59 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiSearch, FiLink } from "react-icons/fi";
 import { ToggleThemeButton } from "./ToggleThemeButton";
 
-export function NavBar() {
+export function NavBar({ runUpdate }) {
   // Mostrar o ocultar el input en pantallas móviles
   const [show, setShowInpuSearch] = useState(false);
+  const [elements, setElements] = useState(null);
 
   function handlerClick() {
     setShowInpuSearch(show == false ? true : false);
   }
 
+  function search(event) {
+    const query = event.target.value;
+    const data = JSON.parse(localStorage.getItem("s3link"));
+
+    // filtrar la data por el query
+    function inQuery(el) {
+      if (el.title.toLowerCase().includes(query.toLowerCase()) || el.description.toLowerCase().includes(query.toLowerCase())) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    const result = data.filter(inQuery);
+
+    // actualizar estado
+    if (query === "") {
+      setElements(null);
+    } else {
+      setElements(result);
+    }
+  }
+
+  useEffect(() => {
+    // renderizar componente App
+    runUpdate();
+    // actualizar localstorage
+    localStorage.setItem("search", JSON.stringify(elements));
+  }, [elements]);
+
   return (
-    <div className="px-4 navbar  fixed z-10 top-0 backdrop-blur">
+    <div className="fixed top-0 z-10 px-4 navbar backdrop-blur">
       <div className="flex-none sm:flex-1">
         <a className="text-xl normal-case rounded btn btn-ghost no-animation">s3link</a>
       </div>
-      <div className="flex-1 sm:flex-none justify-end">
+      <div className="justify-end flex-1 sm:flex-none">
         <div className="flex">
           {/* Ocultar botones de cambiar el tema si show es true */}
           {show == false && (
             <>
               <div>
                 <label htmlFor="modal" className="text-xl normal-case rounded btn btn-ghost no-animation">
-                  <FiLink className="animate-pulse" />
+                  <FiLink className="" />
                 </label>
               </div>
               <div>
@@ -34,24 +65,24 @@ export function NavBar() {
           {show && (
             <>
               <div>
-                <label htmlFor="modal" className="text-xl hidden md:flex normal-case rounded btn btn-ghost no-animation">
-                  <FiLink className="animate-pulse" />
+                <label htmlFor="modal" className="hidden text-xl normal-case rounded md:flex btn btn-ghost no-animation">
+                  <FiLink className="" />
                 </label>
               </div>
               <div>
-                <ToggleThemeButton className="mx-1 text-xl hidden md:flex normal-case rounded btn btn-ghost no-animation" />
+                <ToggleThemeButton className="hidden mx-1 text-xl normal-case rounded md:flex btn btn-ghost no-animation" />
               </div>
             </>
           )}
-          <div className="gap-2 w-full">
+          <div className="w-full gap-2">
             <div className="flex form-control">
               {/* Mostrar si show es true*/}
               {show && (
                 <div className="flex">
-                  <button onClick={handlerClick} className="mx-1 text-xl normal-case rounded md:hidden  btn btn-ghost no-animation">
+                  <button onClick={handlerClick} className="mx-1 text-xl normal-case rounded md:hidden btn btn-ghost no-animation">
                     <FiSearch />
                   </button>
-                  <input type="text" placeholder="buscar" className="rounded w-full  input input-bordered bg-transparent" />
+                  <input onChange={search} type="text" placeholder="buscar" className="w-full bg-transparent rounded input input-bordered " />
                 </div>
               )}
               {/* Mostrar si show es false */}
@@ -60,7 +91,7 @@ export function NavBar() {
                   <button onClick={handlerClick} className="mx-1 text-xl normal-case rounded w-min sm:hidden btn btn-ghost no-animation">
                     <FiSearch />
                   </button>
-                  <input type="text" placeholder="buscar" className="hidden w-72 rounded md:flex input input-bordered bg-transparent" />
+                  <input onChange={search} type="text" placeholder="buscar" className="hidden bg-transparent rounded w-72 md:flex input input-bordered" />
                 </>
               )}
             </div>

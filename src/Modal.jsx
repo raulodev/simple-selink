@@ -3,10 +3,10 @@ import { CiTextAlignLeft, CiImageOn, CiLink, CiKeyboard } from "react-icons/ci";
 import interImage from "./assets/Internet.svg";
 
 export function Modal({ runUpdate }) {
-  // stats
+  // estados
   const [link, setNewLink] = useState(null);
   const [title, setNewTitle] = useState(null);
-  const [description, setNewDescription] = useState("-");
+  const [description, setNewDescription] = useState("");
   const [linkimage, setNewLinkImage] = useState(interImage);
   const [data, setData] = useState(null);
 
@@ -50,12 +50,22 @@ export function Modal({ runUpdate }) {
     // actualizar vista
     runUpdate();
     // obtener la datos guardados en el localStore
-    const items = JSON.parse(localStorage.getItem("s3link"));
+    let items = JSON.parse(localStorage.getItem("s3link"));
     // actualizar datos
     if (data != null && items == null) {
       localStorage.setItem("s3link", JSON.stringify([data]));
     } else if (items != null && data != null) {
-      items.push(data);
+      // comprobar si ya existe un registro con el mismo título
+      let exists = false;
+      items.forEach((el) => {
+        if (el.title == data.title) {
+          exists = true;
+        }
+      });
+      // agregar data en caso de que no exista
+      if (!exists) {
+        items.push(data);
+      }
       localStorage.setItem("s3link", JSON.stringify(items));
     }
   }, [data]);
@@ -73,7 +83,7 @@ export function Modal({ runUpdate }) {
     // reiniciar input descripction
     document.getElementById("input-description").className = inputValid;
     document.getElementById("input-description").value = "";
-    setNewDescription("-");
+    setNewDescription("");
     // reiniciar input image url
     document.getElementById("input-url-image").className = inputValid;
     document.getElementById("input-url-image").value = "";
@@ -94,19 +104,6 @@ export function Modal({ runUpdate }) {
           <p className="py-4">Complete el formulario y presione en agregar.</p>
 
           <div className="grid gap-4">
-            <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Link que lleva al sitio web">
-              <CiLink className="text-xl" />
-              <input
-                onChange={(event) => {
-                  const value = event.target.value;
-                  setNewLink(value);
-                }}
-                id="input-link"
-                type="url"
-                placeholder="link del sitio web *"
-                className={inputValid}
-              />
-            </div>
             <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Título del sitio web">
               <CiKeyboard className="text-xl" />
               <input
@@ -120,6 +117,7 @@ export function Modal({ runUpdate }) {
                 className={inputValid}
               />
             </div>
+
             <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Descripción del sitio web">
               <CiTextAlignLeft className="text-xl" />
               <textarea
@@ -131,6 +129,19 @@ export function Modal({ runUpdate }) {
                 type="text"
                 maxLength={400}
                 placeholder="descripción del sitio web"
+                className={inputValid}
+              />
+            </div>
+            <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Link que lleva al sitio web">
+              <CiLink className="text-xl" />
+              <input
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setNewLink(value);
+                }}
+                id="input-link"
+                type="url"
+                placeholder="link del sitio web *"
                 className={inputValid}
               />
             </div>
