@@ -66,7 +66,7 @@ function App() {
   return (
     <>
       <div>
-        <NavBar />
+        <NavBar runUpdate={runUpdate} />
         <div className="flex items-center justify-center h-screen">
           <label htmlFor="modal" className="text-xl normal-case rounded btn btn-outline btn-primary no-animation">
             <RxPlus className="text-2xl" />

@@ -44,7 +44,7 @@ export function NavBar({ runUpdate }) {
   return (
     <div className="fixed top-0 z-10 px-4 navbar backdrop-blur">
       <div className="flex-none sm:flex-1">
-        <a className="text-xl normal-case rounded btn btn-ghost no-animation">s3link</a>
+        <a className="text-2xl normal-case rounded text-primary btn btn-ghost no-animation">s3link</a>
       </div>
       <div className="justify-end flex-1 sm:flex-none">
         <div className="flex">
