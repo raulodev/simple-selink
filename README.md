@@ -51,5 +51,4 @@ $ npm run dev
 
 ## TODO <a name = "todo"></a>
 
-- Ocultar enlaces
 - Editar información

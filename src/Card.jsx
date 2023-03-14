@@ -1,13 +1,15 @@
 import { RxOpenInNewWindow, RxEyeClosed, RxPencil2 } from "react-icons/rx";
 
-export function Card({ title, description, image, link }) {
+import { ButtonHidden } from "./ButtonHidden";
+
+export function Card({ title, description, image, link, runUpdate }) {
   // TODO implementar editado de la targeta
   function editInfo(title) {
     console.log(title);
   }
 
   return (
-    <div className=" transition-transform  shadow-lg  rounded h-min sm:hover:shadow-xl sm:hover:-translate-y-2 w-80 md:w-96 card bg-base-100">
+    <div className=" transition-transform bg-accent shadow-lg  rounded h-min sm:hover:shadow-xl sm:hover:-translate-y-2 w-80 md:w-96 card">
       <div className="card-body p-4">
         <div className="flex items-center">
           <div className="avatar">
@@ -27,9 +29,7 @@ export function Card({ title, description, image, link }) {
             </label>
           </div>
           <div className="tooltip tooltip-bottom tooltip-primary" data-tip="Ocultar">
-            <button className="rounded btn btn-ghost no-animation">
-              <RxEyeClosed className="text-2xl md:text-3xl" />
-            </button>
+            <ButtonHidden runUpdate={runUpdate} title={title} />
           </div>
           <a href={link} target="_blank" className="tooltip tooltip-bottom tooltip-primary" data-tip="Abrir">
             <button className="rounded btn btn-ghost no-animation">

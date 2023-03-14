@@ -33,7 +33,7 @@ function App() {
           <div className="flex flex-wrap justify-center gap-4 px-4 mt-20">
             {search.map((value) => (
               <div>
-                <Card key={value.title} title={value.title} description={value.description} link={value.link} image={value.image} />
+                <Card runUpdate={runUpdate} key={value.title} title={value.title} description={value.description} link={value.link} image={value.image} />
               </div>
             ))}
           </div>
@@ -43,7 +43,7 @@ function App() {
         <Footer />
       </>
     );
-  } else if (data) {
+  } else if (data.length > 0) {
     return (
       <>
         <div className="min-h-screen">
@@ -51,7 +51,7 @@ function App() {
           <div className="flex flex-wrap justify-center gap-4 px-4 mt-20">
             {data.map((value) => (
               <div>
-                <Card key={value.title} title={value.title} description={value.description} link={value.link} image={value.image} />
+                <Card runUpdate={runUpdate} key={value.title} title={value.title} description={value.description} link={value.link} image={value.image} />
               </div>
             ))}
           </div>

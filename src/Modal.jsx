@@ -13,8 +13,8 @@ export function Modal({ runUpdate }) {
   let new_data = {};
 
   // clases para los input validos e inválidos
-  const inputValid = "w-full md:text-md max-w-xs rounded input border-base-300";
-  const inputInValid = "w-full md:text-md max-w-xs rounded input border-base-300 border-red-500";
+  const inputValid = "w-full bg-accent md:text-md max-w-xs rounded input border-neutral";
+  const inputInValid = "w-full bg-accent md:text-md max-w-xs rounded input border-base-300 border-red-500";
 
   function handlerClick(event) {
     // validando entrada del link
@@ -96,7 +96,7 @@ export function Modal({ runUpdate }) {
     <>
       <input type="checkbox" id="modal" className="modal-toggle" />
       <div className="modal">
-        <div className="rounded modal-box">
+        <div className="rounded modal-box bg-accent">
           <label htmlFor="modal" className="text-xl absolute rounded btn btn-sm btn-circle btn-ghost right-2 top-2">
             ✕
           </label>
@@ -105,7 +105,7 @@ export function Modal({ runUpdate }) {
 
           <div className="grid gap-4">
             <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Título del sitio web">
-              <CiKeyboard className="text-2xl" />
+              {/* <CiKeyboard className="text-2xl" /> */}
               <input
                 autoComplete="off"
                 onChange={(event) => {
@@ -120,7 +120,7 @@ export function Modal({ runUpdate }) {
             </div>
 
             <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Descripción del sitio web">
-              <CiTextAlignLeft className="text-2xl" />
+              {/* <CiTextAlignLeft className="text-2xl" /> */}
               <textarea
                 onChange={(event) => {
                   const value = event.target.value;
@@ -134,7 +134,7 @@ export function Modal({ runUpdate }) {
               />
             </div>
             <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Link que lleva al sitio web">
-              <CiLink className="text-2xl" />
+              {/* <CiLink className="text-2xl" /> */}
               <input
                 autoComplete="off"
                 onChange={(event) => {
@@ -148,7 +148,7 @@ export function Modal({ runUpdate }) {
               />
             </div>
             <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Imagen relacionada con el sitio web">
-              <CiImageOn className="text-2xl" />
+              {/* <CiImageOn className="text-2xl" /> */}
               <input
                 onChange={(event) => {
                   const value = event.target.value;
