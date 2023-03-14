@@ -51,6 +51,5 @@ $ npm run dev
 
 ## TODO <a name = "todo"></a>
 
-- Ordenar por nombre alfabético
 - Ocultar enlaces
 - Editar información

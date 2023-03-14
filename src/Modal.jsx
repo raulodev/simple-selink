@@ -13,8 +13,8 @@ export function Modal({ runUpdate }) {
   let new_data = {};
 
   // clases para los input validos e inválidos
-  const inputValid = "w-full text-lg max-w-xs rounded input border-base-300";
-  const inputInValid = "w-full text-lg max-w-xs rounded input border-base-300 border-red-500";
+  const inputValid = "w-full md:text-md max-w-xs rounded input border-base-300";
+  const inputInValid = "w-full md:text-md max-w-xs rounded input border-base-300 border-red-500";
 
   function handlerClick(event) {
     // validando entrada del link
@@ -36,9 +36,9 @@ export function Modal({ runUpdate }) {
 
     if (title != null && title != "" && link != null && link != "") {
       new_data = {
-        title: title,
-        description: description,
-        link: link,
+        title: title.trim(),
+        description: description.trim(),
+        link: link.trim(),
         image: linkimage.trim().includes("http") ? linkimage : interImage,
       };
 
@@ -100,8 +100,8 @@ export function Modal({ runUpdate }) {
           <label htmlFor="modal" className="text-xl absolute rounded btn btn-sm btn-circle btn-ghost right-2 top-2">
             ✕
           </label>
-          <h3 className="text-xl font-bold">Agregar un nuevo enlace</h3>
-          <p className="py-4 text-lg">Complete el formulario y presione en agregar.</p>
+          <h3 className="text-lg md:text-xl text-primary font-bold">Agregar un nuevo enlace</h3>
+          <p className="py-4 md:text-lg">Complete el formulario y presione en agregar.</p>
 
           <div className="grid gap-4">
             <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Título del sitio web">
@@ -162,7 +162,7 @@ export function Modal({ runUpdate }) {
             </div>
           </div>
           <div className="modal-action">
-            <label onClick={handlerResetInput} htmlFor="modal" className="uppercase rounded btn btn-outline btn-primary no-animation">
+            <label onClick={handlerResetInput} htmlFor="modal" className="uppercase rounded btn btn-outline text-xs p-3 btn-primary no-animation">
               Reiniciar
             </label>
             <label
@@ -170,7 +170,7 @@ export function Modal({ runUpdate }) {
                 handlerClick(event);
               }}
               htmlFor="modal"
-              className="uppercase rounded btn btn-primary no-animation"
+              className="uppercase rounded btn btn-primary text-xs p-3 no-animation"
             >
               Agregar
             </label>

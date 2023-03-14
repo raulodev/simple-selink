@@ -7,8 +7,8 @@ export function Card({ title, description, image, link }) {
   }
 
   return (
-    <div className=" transition-transform border-2 rounded h-min border-info sm:hover:shadow-lg sm:hover:-translate-y-2 w-80 md:w-96 card bg-base-100">
-      <div className="card-body">
+    <div className=" transition-transform  shadow-lg  rounded h-min sm:hover:shadow-xl sm:hover:-translate-y-2 w-80 md:w-96 card bg-base-100">
+      <div className="card-body p-4">
         <div className="flex items-center">
           <div className="avatar">
             <div className="ml-1 mr-4 w-14 h-14">
@@ -16,24 +16,24 @@ export function Card({ title, description, image, link }) {
             </div>
           </div>
           <div>
-            <h2 className="w-full break-words card-title text-primary">{title}</h2>
+            <h2 className="w-full break-words text-lg font-semibold md:card-title text-primary">{title}</h2>
           </div>
         </div>
-        <p className="text-lg break-words md:text-xl">{description}</p>
+        <p className="text-md break-words md:text-xl">{description}</p>
         <div className="justify-end card-actions">
           <div className="tooltip tooltip-bottom tooltip-primary" data-tip="Editar">
             <label onClick={() => editInfo(title)} htmlFor="edit-info-modal" className="rounded btn btn-ghost no-animation">
-              <RxPencil2 className="text-3xl" />
+              <RxPencil2 className="text-2xl md:text-3xl" />
             </label>
           </div>
           <div className="tooltip tooltip-bottom tooltip-primary" data-tip="Ocultar">
             <button className="rounded btn btn-ghost no-animation">
-              <RxEyeClosed className="text-3xl" />
+              <RxEyeClosed className="text-2xl md:text-3xl" />
             </button>
           </div>
           <a href={link} target="_blank" className="tooltip tooltip-bottom tooltip-primary" data-tip="Abrir">
             <button className="rounded btn btn-ghost no-animation">
-              <RxOpenInNewWindow className="text-3xl" />
+              <RxOpenInNewWindow className="text-2xl md:text-3xl" />
             </button>
           </a>
         </div>
