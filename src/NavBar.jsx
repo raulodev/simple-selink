@@ -52,11 +52,6 @@ export function NavBar({ runUpdate }) {
           {show == false && (
             <>
               <div>
-                <label htmlFor="modal" className="text-xl normal-case rounded btn btn-ghost no-animation">
-                  <FiLink className="" />
-                </label>
-              </div>
-              <div>
                 <ToggleThemeButton className="mx-1 text-xl normal-case rounded btn btn-ghost no-animation" />
               </div>
             </>

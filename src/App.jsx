@@ -1,10 +1,19 @@
-import { RxPlus } from "react-icons/rx";
-
+import { RxPlus, RxLink2 } from "react-icons/rx";
 import { useState } from "react";
 import { NavBar } from "./NavBar";
 import { Modal } from "./Modal";
 import { Card } from "./Card";
 import { Footer } from "./Footer";
+
+function Button() {
+  return (
+    <div className="fixed bottom-10 right-10">
+      <label htmlFor="modal" className="text-xl normal-case rounded btn btn-primary no-animation">
+        <RxLink2 className="" />
+      </label>
+    </div>
+  );
+}
 
 function App() {
   const data = JSON.parse(localStorage.getItem("s3link"));
@@ -30,6 +39,7 @@ function App() {
           </div>
         </div>
         <Modal runUpdate={runUpdate} />
+        <Button />
         <Footer />
       </>
     );
@@ -47,6 +57,7 @@ function App() {
           </div>
         </div>
         <Modal runUpdate={runUpdate} />
+        <Button />
         <Footer />
       </>
     );
@@ -63,6 +74,7 @@ function App() {
         </div>
         <Modal runUpdate={runUpdate} />
       </div>
+      <Button />
       <Footer />
     </>
   );
