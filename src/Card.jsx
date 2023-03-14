@@ -7,7 +7,7 @@ export function Card({ title, description, image, link }) {
   }
 
   return (
-    <div className=" transition-transform border sm:border-2 rounded h-min border-info sm:hover:shadow-lg sm:hover:-translate-y-2 w-80 md:w-96 card bg-base-100">
+    <div className=" transition-transform shadow border-2 rounded h-min border-info sm:hover:shadow-lg sm:hover:-translate-y-2 w-80 md:w-96 card bg-base-100">
       <div className="card-body">
         <div className="flex items-center">
           <div className="avatar">
