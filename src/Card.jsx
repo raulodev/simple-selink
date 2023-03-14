@@ -7,7 +7,7 @@ export function Card({ title, description, image, link }) {
   }
 
   return (
-    <div className="transition-all border-2 rounded h-min border-info hover:shadow-lg sm:hover:-translate-y-2 w-96 card bg-base-100">
+    <div className="transition-all border-2 rounded h-min border-info sm:hover:shadow-lg sm:hover:-translate-y-2 w-80 md:w-96 card bg-base-100">
       <div className="card-body">
         <div className="flex items-center">
           <div className="avatar">
@@ -19,7 +19,7 @@ export function Card({ title, description, image, link }) {
             <h2 className="w-full break-words card-title text-primary">{title}</h2>
           </div>
         </div>
-        <p className="text-xl break-words">{description}</p>
+        <p className="text-lg break-words md:text-xl">{description}</p>
         <div className="justify-end card-actions">
           <div className="tooltip tooltip-bottom tooltip-primary" data-tip="Editar">
             <label onClick={() => editInfo(title)} htmlFor="edit-info-modal" className="rounded btn btn-ghost no-animation">
