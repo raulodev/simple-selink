@@ -1,4 +1,4 @@
-import { RxOpenInNewWindow, RxEyeClosed, RxPencil2 } from "react-icons/rx";
+import { RxOpenInNewWindow, RxPencil2 } from "react-icons/rx";
 
 import { ButtonHidden } from "./ButtonHidden";
 
@@ -9,16 +9,16 @@ export function Card({ title, description, image, link, runUpdate }) {
   }
 
   return (
-    <div className=" transition-transform bg-accent shadow-lg  rounded h-min sm:hover:shadow-xl sm:hover:-translate-y-2 w-80 md:w-96 card">
+    <div className=" transition-transform bg-info shadow-lg min-h-[10rem]  rounded h-min sm:hover:shadow-xl sm:hover:-translate-y-2 w-80 md:w-96 card">
       <div className="card-body p-4">
-        <div className="flex items-center">
+        <div className="flex items-center ">
           <div className="avatar">
             <div className="ml-1 mr-4 w-14 h-14">
               <img className="object-cover w-full h-full" src={image} />
             </div>
           </div>
           <div>
-            <h2 className="w-full break-words text-lg font-semibold md:card-title text-primary">{title}</h2>
+            <h2 className="w-full break-all text-lg font-semibold md:card-title text-primary underline decoration-double underline-offset-4 decoration-primary">{title}</h2>
           </div>
         </div>
         <p className="text-md break-words md:text-xl">{description}</p>

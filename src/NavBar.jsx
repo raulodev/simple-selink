@@ -43,47 +43,49 @@ export function NavBar({ runUpdate }) {
   }, [elements]);
 
   return (
-    <div className="fixed top-0 z-10 px-4 navbar backdrop-blur">
-      <div className="flex-none sm:flex-1">
-        <a className="text-2xl normal-case rounded text-primary btn btn-ghost no-animation">s3link</a>
-      </div>
-      <div className="justify-end flex-1 sm:flex-none">
-        <div className="flex">
-          {show ? (
-            <>
-              <ButtonAbc runUpdate={runUpdate} className="hidden md:flex mx-1 text-lg font-normal normal-case rounded btn btn-ghost no-animation" />
+    <div className="w-full fixed top-0 z-10 px-4 bg-info backdrop-blur">
+      <div className="navbar">
+        <div className="flex-none sm:flex-1">
+          <a className="text-2xl normal-case rounded text-primary btn btn-ghost no-animation">s3link</a>
+        </div>
+        <div className="justify-end flex-1 sm:flex-none">
+          <div className="flex">
+            {show ? (
+              <>
+                <ButtonAbc runUpdate={runUpdate} className="hidden md:flex mx-1 text-md font-normal normal-case rounded btn btn-ghost no-animation" />
 
-              <div>
-                <ToggleThemeButton className="hidden mx-1 text-xl normal-case rounded md:flex btn btn-ghost no-animation" />
-              </div>
-            </>
-          ) : (
-            <>
-              <ButtonAbc runUpdate={runUpdate} className="mx-1 text-lg font-normal normal-case rounded btn btn-ghost no-animation" />
-
-              <div>
-                <ToggleThemeButton className="mx-1 text-xl normal-case rounded btn btn-ghost no-animation" />
-              </div>
-            </>
-          )}
-
-          <div className="w-full gap-2">
-            <div className="flex form-control">
-              {show ? (
-                <div className="flex">
-                  <button onClick={handlerClick} className="mx-1 text-xl normal-case rounded md:hidden btn btn-ghost no-animation">
-                    <FiSearch />
-                  </button>
-                  <input onChange={search} type="text" placeholder="buscar" className="w-full bg-transparent rounded input input-bordered " />
+                <div>
+                  <ToggleThemeButton className="hidden mx-1 text-xl normal-case rounded md:flex btn btn-ghost no-animation" />
                 </div>
-              ) : (
-                <>
-                  <button onClick={handlerClick} className="mx-1 text-xl normal-case rounded w-min sm:hidden btn btn-ghost no-animation">
-                    <FiSearch />
-                  </button>
-                  <input onChange={search} type="text" placeholder="buscar" className="hidden bg-transparent rounded w-72 md:flex input input-bordered" />
-                </>
-              )}
+              </>
+            ) : (
+              <>
+                <ButtonAbc runUpdate={runUpdate} className="mx-1 text-md font-normal normal-case rounded btn btn-ghost no-animation" />
+
+                <div>
+                  <ToggleThemeButton className="mx-1 text-lg normal-case rounded btn btn-ghost no-animation" />
+                </div>
+              </>
+            )}
+
+            <div className="w-full gap-2">
+              <div className="flex form-control">
+                {show ? (
+                  <div className="flex">
+                    <button onClick={handlerClick} className="mx-1 text-xl normal-case rounded md:hidden btn btn-ghost no-animation">
+                      <FiSearch />
+                    </button>
+                    <input onChange={search} type="text" placeholder="buscar" className="w-full bg-transparent rounded input input-bordered " />
+                  </div>
+                ) : (
+                  <>
+                    <button onClick={handlerClick} className="mx-1 text-xl normal-case rounded w-min sm:hidden btn btn-ghost no-animation">
+                      <FiSearch />
+                    </button>
+                    <input onChange={search} type="text" placeholder="buscar" className="hidden bg-transparent rounded w-72 md:flex input input-bordered" />
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>

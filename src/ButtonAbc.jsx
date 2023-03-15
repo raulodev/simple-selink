@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { FiArrowDown, FiArrowUp } from "react-icons/fi";
+import { RiSortAsc, RiSortDesc } from "react-icons/ri";
 
 export function ButtonAbc({ className, runUpdate }) {
   const [order, setOrder] = useState(false);
@@ -21,9 +21,10 @@ export function ButtonAbc({ className, runUpdate }) {
   }, [order]);
 
   return (
-    <div onClick={handlerClic} className={className}>
-      abc
-      {order ? <FiArrowUp /> : <FiArrowDown />}
+    <div className="tooltip tooltip-bottom tooltip-primary" data-tip="Ordenar">
+      <div onClick={handlerClic} className={className}>
+        {order ? <RiSortAsc className="w-5 h-5" /> : <RiSortDesc className="w-5 h-5" />}
+      </div>
     </div>
   );
 }

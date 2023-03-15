@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { RxEyeClosed } from "react-icons/rx";
+import { VscChromeClose } from "react-icons/vsc";
 
 export function ButtonHidden({ title, runUpdate }) {
   const [newdata, setNewData] = useState(null);
@@ -29,7 +29,7 @@ export function ButtonHidden({ title, runUpdate }) {
 
   return (
     <button onClick={(title) => handlerClick(title)} className="rounded btn btn-ghost no-animation">
-      <RxEyeClosed className="text-2xl md:text-3xl" />
+      <VscChromeClose className="text-2xl md:text-3xl" />
     </button>
   );
 }

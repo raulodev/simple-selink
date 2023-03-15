@@ -21,8 +21,10 @@ export function ToggleThemeButton({ className }) {
   });
 
   return (
-    <button id="toggle-theme" onClick={toggleTheme} className={className}>
-      {theme === "black" ? <FiMoon className="w-5 h-5" /> : <FiSun className="w-5 h-5" />}
-    </button>
+    <div className="tooltip tooltip-bottom tooltip-primary" data-tip="Tema">
+      <button id="toggle-theme" onClick={toggleTheme} className={className}>
+        {theme === "black" ? <FiMoon className="w-5 h-5" /> : <FiSun className="w-5 h-5" />}
+      </button>
+    </div>
   );
 }

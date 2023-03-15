@@ -13,8 +13,8 @@ export function Modal({ runUpdate }) {
   let new_data = {};
 
   // clases para los input validos e inválidos
-  const inputValid = "w-full bg-accent md:text-md max-w-xs rounded input border-neutral";
-  const inputInValid = "w-full bg-accent md:text-md max-w-xs rounded input border-base-300 border-red-500";
+  const inputValid = "w-full bg-accent md:text-md max-w-xs rounded input input-bordered";
+  const inputInValid = "w-full bg-accent md:text-md max-w-xs rounded input input-bordered border-red-500";
 
   function handlerClick(event) {
     // validando entrada del link
@@ -95,7 +95,7 @@ export function Modal({ runUpdate }) {
   return (
     <>
       <input type="checkbox" id="modal" className="modal-toggle" />
-      <div className="modal">
+      <div className="modal backdrop-blur">
         <div className="rounded modal-box bg-accent">
           <label htmlFor="modal" className="text-xl absolute rounded btn btn-sm btn-circle btn-ghost right-2 top-2">
             ✕
@@ -108,6 +108,7 @@ export function Modal({ runUpdate }) {
               {/* <CiKeyboard className="text-2xl" /> */}
               <input
                 autoComplete="off"
+                maxLength={25}
                 onChange={(event) => {
                   const value = event.target.value;
                   setNewTitle(value);
@@ -128,7 +129,7 @@ export function Modal({ runUpdate }) {
                 }}
                 id="input-description"
                 type="text"
-                maxLength={400}
+                maxLength={40}
                 placeholder="descripción del sitio web"
                 className={inputValid}
               />
