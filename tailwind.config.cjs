@@ -12,7 +12,7 @@ module.exports = {
           ...require("daisyui/src/colors/themes")["[data-theme=black]"],
           primary: "#cecece",
           info: "#101011",
-          accent: "#18181b",
+          accent: "#18181b", // fondo
           neutral: "#000000",
         },
       },
@@ -21,7 +21,7 @@ module.exports = {
           ...require("daisyui/src/colors/themes")["[data-theme=light]"],
           primary: "#3b82f6",
           info: "#ffffff",
-          accent: "#fafafa",
+          accent: "#fff", // fondo
           neutral: "#cecece",
           secondary: "#7c3aed",
           "base-100": "#FFFFFF",

@@ -10,9 +10,15 @@ export function ButtonAbc({ className, runUpdate }) {
     setOrder(order ? false : true);
 
     if (order) {
-      localStorage.setItem("s3link", JSON.stringify(data.sort((a, b) => a.title.localeCompare(b.title))));
+      localStorage.setItem(
+        "s3link",
+        JSON.stringify(data.sort((a, b) => a.title.localeCompare(b.title)))
+      );
     } else {
-      localStorage.setItem("s3link", JSON.stringify(data.sort((a, b) => b.title.localeCompare(a.title))));
+      localStorage.setItem(
+        "s3link",
+        JSON.stringify(data.sort((a, b) => b.title.localeCompare(a.title)))
+      );
     }
   }
 
@@ -21,7 +27,7 @@ export function ButtonAbc({ className, runUpdate }) {
   }, [order]);
 
   return (
-    <div className="tooltip tooltip-bottom tooltip-primary" data-tip="Ordenar">
+    <div className="lg:tooltip lg:tooltip-bottom lg:tooltip-primary" data-tip="Ordenar">
       <div onClick={handlerClic} className={className}>
         {order ? <RiSortAsc className="w-5 h-5" /> : <RiSortDesc className="w-5 h-5" />}
       </div>

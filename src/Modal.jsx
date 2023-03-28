@@ -14,7 +14,8 @@ export function Modal({ runUpdate }) {
 
   // clases para los input validos e inválidos
   const inputValid = "w-full bg-accent md:text-md max-w-xs rounded input input-bordered";
-  const inputInValid = "w-full bg-accent md:text-md max-w-xs rounded input input-bordered border-red-500";
+  const inputInValid =
+    "w-full bg-accent md:text-md max-w-xs rounded input input-bordered border-red-500";
 
   function handlerClick(event) {
     // validando entrada del link
@@ -47,6 +48,7 @@ export function Modal({ runUpdate }) {
   }
 
   useEffect(() => {
+    let edit = JSON.parse(localStorage.getItem("toedit"));
     // actualizar vista
     runUpdate();
     // obtener la datos guardados en el localStore
@@ -97,14 +99,20 @@ export function Modal({ runUpdate }) {
       <input type="checkbox" id="modal" className="modal-toggle" />
       <div className="modal backdrop-blur">
         <div className="rounded modal-box bg-accent">
-          <label htmlFor="modal" className="text-xl absolute rounded btn btn-sm btn-circle btn-ghost right-2 top-2">
+          <label
+            htmlFor="modal"
+            className="text-xl absolute rounded btn btn-sm btn-circle btn-ghost right-2 top-2"
+          >
             ✕
           </label>
           <h3 className="text-lg md:text-xl text-primary font-bold">Agregar un nuevo enlace</h3>
           <p className="py-4 md:text-lg">Complete el formulario y presione en agregar.</p>
 
           <div className="grid gap-4">
-            <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Título del sitio web">
+            <div
+              className="flex items-center gap-2 tooltip tooltip-top tooltip-primary"
+              data-tip="Título del sitio web"
+            >
               {/* <CiKeyboard className="text-2xl" /> */}
               <input
                 autoComplete="off"
@@ -120,9 +128,12 @@ export function Modal({ runUpdate }) {
               />
             </div>
 
-            <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Descripción del sitio web">
+            <div
+              className="flex items-center gap-2 tooltip tooltip-top tooltip-primary"
+              data-tip="Descripción del sitio web"
+            >
               {/* <CiTextAlignLeft className="text-2xl" /> */}
-              <textarea
+              <input
                 onChange={(event) => {
                   const value = event.target.value;
                   setNewDescription(value);
@@ -134,7 +145,10 @@ export function Modal({ runUpdate }) {
                 className={inputValid}
               />
             </div>
-            <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Link que lleva al sitio web">
+            <div
+              className="flex items-center gap-2 tooltip tooltip-top tooltip-primary"
+              data-tip="Link que lleva al sitio web"
+            >
               {/* <CiLink className="text-2xl" /> */}
               <input
                 autoComplete="off"
@@ -148,7 +162,10 @@ export function Modal({ runUpdate }) {
                 className={inputValid}
               />
             </div>
-            <div className="flex items-center gap-2 tooltip tooltip-top tooltip-primary" data-tip="Imagen relacionada con el sitio web">
+            <div
+              className="flex items-center gap-2 tooltip tooltip-top tooltip-primary"
+              data-tip="Imagen relacionada con el sitio web"
+            >
               {/* <CiImageOn className="text-2xl" /> */}
               <input
                 onChange={(event) => {
@@ -163,7 +180,11 @@ export function Modal({ runUpdate }) {
             </div>
           </div>
           <div className="modal-action">
-            <label onClick={handlerResetInput} htmlFor="modal" className="uppercase rounded btn btn-outline text-xs p-3 btn-primary no-animation">
+            <label
+              onClick={handlerResetInput}
+              htmlFor="modal"
+              className="uppercase rounded btn btn-outline text-xs p-3 btn-primary no-animation"
+            >
               Reiniciar
             </label>
             <label

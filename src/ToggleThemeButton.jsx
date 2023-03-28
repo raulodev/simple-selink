@@ -21,7 +21,7 @@ export function ToggleThemeButton({ className }) {
   });
 
   return (
-    <div className="tooltip tooltip-bottom tooltip-primary" data-tip="Tema">
+    <div className="lg:tooltip lg:tooltip-bottom lg:tooltip-primary" data-tip="Tema">
       <button id="toggle-theme" onClick={toggleTheme} className={className}>
         {theme === "black" ? <FiMoon className="w-5 h-5" /> : <FiSun className="w-5 h-5" />}
       </button>
