@@ -28,37 +28,32 @@ function App() {
     setUpdate(update + 1);
   }
 
-  try {
-    if (search != null && search.length > 0) {
-      return (
-        <>
-          <div className="min-h-screen tracking-tight">
-            <NavBar runUpdate={runUpdate} />
-            <div className="flex flex-wrap justify-center gap-4 px-4 pt-20">
-              {search.map((value) => (
-                <div>
-                  <Card
-                    runUpdate={runUpdate}
-                    key={value.title}
-                    title={value.title}
-                    description={value.description}
-                    link={value.link}
-                    image={value.image}
-                  />
-                </div>
-              ))}
-            </div>
+  if (search?.length > 0) {
+    return (
+      <>
+        <div className="min-h-screen tracking-tight">
+          <NavBar runUpdate={runUpdate} />
+          <div className="flex flex-wrap justify-center gap-4 px-4 pt-20">
+            {search.map((value) => (
+              <div>
+                <Card
+                  runUpdate={runUpdate}
+                  key={value.title}
+                  title={value.title}
+                  description={value.description}
+                  link={value.link}
+                  image={value.image}
+                />
+              </div>
+            ))}
           </div>
-          <Modal runUpdate={runUpdate} />
-          <Button />
-          <Footer />
-        </>
-      );
-    }
-  } catch (error) {
-    console.log("Se produjo un error: " + error.message);
-  }
-  if (data.length > 0) {
+        </div>
+        <Modal runUpdate={runUpdate} />
+        <Button />
+        <Footer />
+      </>
+    );
+  } else if (data?.length > 0) {
     return (
       <>
         <div className="min-h-screen tracking-tight">
