@@ -46,7 +46,7 @@ function App() {
           <h1 className="text-center font-black text-5xl bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
             Selink
           </h1>
-          <p className="text-center"> La app que nunca te perderá un enlace importante</p>
+          <p className="text-center text-xl">El linkstore más usado del internet</p>
         </div>
 
         <div className="fixed bottom-10">
