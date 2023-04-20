@@ -5,7 +5,7 @@
 
 @layer components {
     .btn-primary {
-        @apply bg-emerald-500 hover:bg-emerald-600 transition-all ease-in py-2 px-5 rounded-sm text-white shadow-lg outline-none
+        @apply bg-emerald-500 uppercase hover:bg-emerald-600 transition-all ease-in py-2 px-5 rounded-sm text-white shadow-lg outline-none
     }
 
     .modal-overlay {
@@ -13,7 +13,7 @@
     }
 
     .input {
-        @apply outline-none p-2 border rounded-sm border-zinc-400 focus:border-zinc-500
+        @apply outline-none p-2 border bg-emerald-400 placeholder:text-white text-white rounded-sm border-emerald-400 focus:border-emerald-500
     }
 
 

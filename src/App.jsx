@@ -77,7 +77,7 @@ function App() {
       )}
       <footer className="h-20 text-white font-bold flex flex-row items-center justify-center gap-4">
         <span>
-          Creado con ❤️ por{" "}
+          creado con ❤️ por{" "}
           <a href="https://raulcobiellas.vercel.app/" target="_blank" rel="noopener noreferrer">
             raulodev
           </a>
@@ -104,14 +104,9 @@ const Card = ({ url, title, handlerDelete }) => {
 const Modal = ({ handlerSave, setShowModal, setValueUrl, setValueTitle }) => {
   return (
     <div className="modal-overlay">
-      <div className="bg-white rounded-sm flex flex-col p-5">
-        <div className="flex justify-end">
-          <button onClick={() => setShowModal(false)}>
-            <AiOutlineCloseCircle className="text-zinc-700" />
-          </button>
-        </div>
+      <div className="bg-emerald-500 rounded-sm flex flex-col p-5">
         <div className="flex flex-col gap-4">
-          <h1 className="text-xl font-bold text-zinc-700">Ingrese los datos</h1>
+          <h1 className="text-xl font-bold text-white">Ingrese los datos</h1>
           <input
             onChange={(e) => setValueUrl(e.target.value)}
             className="input"
@@ -131,17 +126,17 @@ const Modal = ({ handlerSave, setShowModal, setValueUrl, setValueTitle }) => {
           <div className="flex gap-4">
             <button
               onClick={() => handlerSave()}
-              className="btn-primary font-light w-max flex items-center gap-2"
+              className="btn-primary w-max flex items-center gap-2"
             >
               Save
               <AiOutlineSave className="text-lg zinc-700" />
             </button>
             <button
               onClick={() => setShowModal(false)}
-              className="bg-white py-2 border border-zinc-400 hover:border-zinc-500 px-5 text-zinc-700 font-light w-max flex items-center gap-2"
+              className="btn-primary flex gap-2 items-center "
             >
               Close
-              <AiOutlineCloseCircle className="text-lg text-zinc-700" />
+              <AiOutlineCloseCircle className="text-lg text-white" />
             </button>
           </div>
         </div>
