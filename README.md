@@ -12,7 +12,6 @@ Aplicación contruida con React y daisyUI para guardar enlaces
 
 Dependencias
 
-- daisyui (2.50.0) [Web](https://daisyui.com/docs/install/)
 - react (18.2.0) [Web](https://reactjs.org/docs/getting-started.html)
 - react-icons (4.7.1) [Web](https://react-icons.github.io/react-icons/)
 
@@ -48,7 +47,3 @@ $ npm install
 ```console
 $ npm run dev
 ```
-
-## TODO <a name = "todo"></a>
-
-- Editar información

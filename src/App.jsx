@@ -1,103 +1,141 @@
-import { useState } from "react";
-import { RxPlus, RxLink2 } from "react-icons/rx";
-import { NavBar } from "./NavBar";
-import { Modal } from "./Modal";
-import { Card } from "./Card";
-import { Footer } from "./Footer";
-
-function Button() {
-  return (
-    <div className="fixed bottom-10 right-10">
-      <label
-        htmlFor="modal"
-        className="text-xl normal-case btn-circle btn btn-primary no-animation"
-      >
-        <RxLink2 className="" />
-      </label>
-    </div>
-  );
-}
+import { useEffect, useState } from "react";
+import { AiOutlineCloseCircle, AiOutlineSave, AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 
 function App() {
-  const data = JSON.parse(localStorage.getItem("s3link"));
-  const search = JSON.parse(localStorage.getItem("search"));
+  const [storage, setStorage] = useState();
+  const [showModal, setShowModal] = useState(false);
+  const [valueUrl, setValueUrl] = useState();
+  const [valueTitle, setValueTitle] = useState();
 
-  const [update, setUpdate] = useState(0);
+  useEffect(() => {
+    const local = JSON.parse(localStorage.getItem("selink"));
+    setStorage(local);
 
-  function runUpdate() {
-    setUpdate(update + 1);
-  }
+    if (local?.length == 0 || local == null) {
+      setShowModal(true);
+    }
+  }, [valueUrl, valueTitle, showModal]);
 
-  if (search?.length > 0) {
-    return (
-      <>
-        <div className="min-h-screen tracking-tight">
-          <NavBar runUpdate={runUpdate} />
-          <div className="flex flex-wrap justify-center gap-4 px-4 pt-20">
-            {search.map((value) => (
-              <div>
-                <Card
-                  runUpdate={runUpdate}
-                  key={value.title}
-                  title={value.title}
-                  description={value.description}
-                  link={value.link}
-                  image={value.image}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-        <Modal runUpdate={runUpdate} />
-        <Button />
-        <Footer />
-      </>
-    );
-  } else if (data?.length > 0) {
-    return (
-      <>
-        <div className="min-h-screen tracking-tight">
-          <NavBar runUpdate={runUpdate} />
-          <div className="flex flex-wrap justify-center gap-4 px-4 pt-20">
-            {data.map((value) => (
-              <div>
-                <Card
-                  runUpdate={runUpdate}
-                  key={value.title}
-                  title={value.title}
-                  description={value.description}
-                  link={value.link}
-                  image={value.image}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-        <Modal runUpdate={runUpdate} />
-        <Button />
-        <Footer />
-      </>
-    );
-  }
+  const handlerSave = () => {
+    let local = JSON.parse(localStorage.getItem("selink"));
+
+    if (!local) {
+      localStorage.setItem("selink", JSON.stringify([{ url: valueUrl, title: valueTitle }]));
+    } else {
+      local.push({ url: valueUrl, title: valueTitle });
+      localStorage.setItem("selink", JSON.stringify(local));
+    }
+
+    setValueUrl("");
+    setValueTitle("");
+    setShowModal(false);
+  };
+
+  const handlerDelete = (title) => {
+    localStorage.setItem("selink", JSON.stringify(storage.filter((el) => el.title != title)));
+    setStorage(storage.filter((el) => el.title != title));
+    if (storage?.length == 1) {
+      setShowModal(true);
+    }
+  };
 
   return (
     <>
-      <div>
-        <div className="flex tracking-tight items-center justify-center h-screen">
-          <NavBar runUpdate={runUpdate} />
-          <label
-            htmlFor="modal"
-            className="text-xl normal-case rounded btn btn-primary no-animation"
+      <div className="selection:bg-green-500 selection:text-white flex flex-col min-h-screen justify-start items-center">
+        <h1 className="font-black text-5xl bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent  py-10">
+          Guarda tus enlaces
+        </h1>
+
+        <div className="fixed bottom-10">
+          <button
+            onClick={() => setShowModal(showModal ? false : true)}
+            className="btn-primary text-xl flex gap-2 items-center"
           >
-            <RxPlus className="text-2xl" />
-          </label>
+            <AiOutlinePlus /> Nuevo
+          </button>
         </div>
-        <Modal runUpdate={runUpdate} />
+        <div className="grid grid-cols-1 gap-4 flex-wrap py-4 items-center justify-center">
+          {storage &&
+            storage.map((el) => (
+              <Card key={el.title} url={el.url} title={el.title} handlerDelete={handlerDelete} />
+            ))}
+        </div>
       </div>
-      <Button />
-      <Footer />
+      {showModal && (
+        <Modal
+          handlerSave={handlerSave}
+          setShowModal={setShowModal}
+          setValueUrl={setValueUrl}
+          setValueTitle={setValueTitle}
+          inpuValue={valueUrl}
+        />
+      )}
+      <footer className="h-20" />
     </>
   );
 }
+
+const Card = ({ url, title, handlerDelete }) => {
+  return (
+    <div className="lg:w-[30rem] border py-3 px-4 bg-green-500 rounded-sm shadow-lg text-white w-80 overflow-x-auto flex gap-2 items-center">
+      <button onClick={() => handlerDelete(title)}>
+        <AiFillDelete className="text-white text-xl" />
+      </button>
+
+      <a className="hover:underline" href={url} target="_blank">
+        {title}
+      </a>
+    </div>
+  );
+};
+
+const Modal = ({ handlerSave, setShowModal, setValueUrl, setValueTitle }) => {
+  return (
+    <div className="modal-overlay">
+      <div className="bg-white rounded-sm flex flex-col p-5">
+        <div className="flex justify-end">
+          <button onClick={() => setShowModal(false)}>
+            <AiOutlineCloseCircle className="text-zinc-700" />
+          </button>
+        </div>
+        <div className="flex flex-col gap-4">
+          <h1 className="text-xl font-bold text-zinc-700">Ingrese los datos</h1>
+          <input
+            onChange={(e) => setValueUrl(e.target.value)}
+            className="input"
+            type="url"
+            placeholder="enlace"
+            name="url"
+            autoFocus
+          />
+          <input
+            onChange={(e) => setValueTitle(e.target.value)}
+            className="input"
+            type="text"
+            placeholder="título"
+            name="title"
+            maxLength={100}
+          />
+          <div className="flex gap-4">
+            <button
+              onClick={() => handlerSave()}
+              className="btn-primary font-light w-max flex items-center gap-2"
+            >
+              Save
+              <AiOutlineSave className="text-lg zinc-700" />
+            </button>
+            <button
+              onClick={() => setShowModal(false)}
+              className="bg-white py-2 border border-zinc-400 hover:border-zinc-500 px-5 text-zinc-700 font-light w-max flex items-center gap-2"
+            >
+              Close
+              <AiOutlineCloseCircle className="text-lg text-zinc-700" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default App;
