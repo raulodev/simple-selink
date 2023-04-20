@@ -1,33 +1,22 @@
-# selink
+# S3link
+
+![alt](./view.png)
 
 ## Tabla de contenido
 
 - [Sobre](#about)
 - [Instalación](#getting_started)
-- [TODO](#todo)
 
 ## Sobre <a name = "about"></a>
 
-Aplicación contruida con React y daisyUI para guardar enlaces
+Aplicación contruida con React y Tailwindcss para guardar enlaces
 
-Dependencias
-
-- react (18.2.0) [Web](https://reactjs.org/docs/getting-started.html)
-- react-icons (4.7.1) [Web](https://react-icons.github.io/react-icons/)
-
-Dependencias de desarrollo
-
-- autoprefixer (10.4.13)
-- postcss (8.4.21)
-- tailwindcss (3.2.4) [Web](https://tailwindcss.com/docs/installation)
-- vite (4.1.0) [Web](https://vitejs.dev/guide/)
+## Instalación <a name = "getting_started"></a>
 
 ### Prerrequisitos
 
 - Nodejs (18.12.1)
 - npm (8.19.2)
-
-## Instalación <a name = "getting_started"></a>
 
 ### Clonar repositorio
 

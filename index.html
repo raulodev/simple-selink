@@ -2,16 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>selink</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-    <meta name="description" content="s3link es una aplicación para guardar enlaces a recursos o sitios web importantes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S3link</title>
+
+    <meta
+      name="description"
+      content="s3link es una aplicación para guardar enlaces a recursos o sitios web importantes"
+    />
 
     <meta property="og:url" content="https://s3link.vercel.app" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="s3link" />
-    <meta property="og:description" content="s3link es una aplicación para guardar enlaces a recursos o sitios web importantes" />
+    <meta
+      property="og:description"
+      content="s3link es una aplicación para guardar enlaces a recursos o sitios web importantes"
+    />
     <meta property="og:image" content="https://yourimage.png" />
 
     <!-- Twitter Meta Tags -->
@@ -19,15 +30,23 @@
     <meta property="twitter:domain" content="s3link.vercel.app" />
     <meta property="twitter:url" content="https://s3link.vercel.app" />
     <meta name="twitter:title" content="s3link" />
-    <meta name="twitter:description" content="s3link es una aplicación para guardar enlaces a recursos o sitios web importantes" />
+    <meta
+      name="twitter:description"
+      content="s3link es una aplicación para guardar enlaces a recursos o sitios web importantes"
+    />
     <meta name="twitter:image" content="https://yourimage.png" />
+
+    <meta name="theme-color" content="rgb(16 ,185 ,129 )" />
   </head>
   <style>
     body {
       margin: 0% auto;
+      background-image: url("src/assets/backgroun.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
     }
   </style>
-  <body class="bg-accent">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

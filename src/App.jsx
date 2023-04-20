@@ -1,3 +1,5 @@
+import backgroun from "./assets/backgroun.svg";
+
 import { useEffect, useState } from "react";
 import { AiOutlineCloseCircle, AiOutlineSave, AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 
@@ -41,12 +43,12 @@ function App() {
 
   return (
     <>
-      <div className="selection:bg-green-500 selection:text-white flex flex-col min-h-screen justify-start items-center">
+      <div className="selection:bg-emerald-400  selection:text-white flex flex-col min-h-screen justify-start items-center">
         <div className="py-10">
-          <h1 className="text-center font-black text-5xl bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
-            Selink
-          </h1>
-          <p className="text-center text-xl">El linkstore más usado del internet</p>
+          <h1 className="text-center font-black text-6xl text-white">S3link</h1>
+          <p className="text-center text-xl font-bold text-white">
+            El linkstore favorito del internet
+          </p>
         </div>
 
         <div className="fixed bottom-10">
@@ -73,19 +75,26 @@ function App() {
           inpuValue={valueUrl}
         />
       )}
-      <footer className="h-20" />
+      <footer className="h-20 text-white font-bold flex flex-row items-center justify-center gap-4">
+        <span>
+          Creado con ❤️ por{" "}
+          <a href="https://raulcobiellas.vercel.app/" target="_blank" rel="noopener noreferrer">
+            raulodev
+          </a>
+        </span>
+      </footer>
     </>
   );
 }
 
 const Card = ({ url, title, handlerDelete }) => {
   return (
-    <div className="lg:w-[30rem] border py-3 px-4 bg-green-500 rounded-sm shadow-lg text-white w-80 overflow-x-auto flex gap-2 items-center">
+    <div className="lg:w-[30rem] py-3 px-4 bg-emerald-500 rounded-sm shadow-lg text-white w-80 overflow-x-auto flex gap-2 items-center">
       <button onClick={() => handlerDelete(title)}>
         <AiFillDelete className="text-white text-xl" />
       </button>
 
-      <a className="hover:underline" href={url} target="_blank">
+      <a className="hover:underline text-lg" href={url} target="_blank">
         {title}
       </a>
     </div>

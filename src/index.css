@@ -5,7 +5,7 @@
 
 @layer components {
     .btn-primary {
-        @apply bg-green-500 hover:bg-green-600 transition-all ease-in py-2 px-5 rounded-sm text-white shadow outline-none
+        @apply bg-emerald-500 hover:bg-emerald-600 transition-all ease-in py-2 px-5 rounded-sm text-white shadow-lg outline-none
     }
 
     .modal-overlay {
