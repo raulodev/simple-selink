@@ -42,9 +42,12 @@ function App() {
   return (
     <>
       <div className="selection:bg-green-500 selection:text-white flex flex-col min-h-screen justify-start items-center">
-        <h1 className="font-black text-5xl bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent  py-10">
-          Guarda tus enlaces
-        </h1>
+        <div className="py-10">
+          <h1 className="text-center font-black text-5xl bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
+            Selink
+          </h1>
+          <p className="text-center"> La app que nunca te perderá un enlace importante</p>
+        </div>
 
         <div className="fixed bottom-10">
           <button
