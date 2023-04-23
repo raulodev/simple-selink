@@ -1,6 +1,6 @@
 # S3link
 
-![alt](./view.png)
+![alt](./public/view.png)
 
 ## Tabla de contenido
 

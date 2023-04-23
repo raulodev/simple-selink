@@ -1,5 +1,3 @@
-import backgroun from "./assets/backgroun.svg";
-
 import { useEffect, useState } from "react";
 import { AiOutlineCloseCircle, AiOutlineSave, AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 
